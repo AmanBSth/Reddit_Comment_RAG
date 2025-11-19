@@ -10,20 +10,6 @@ A Retrieval-Augmented Generation (RAG) chatbot that answers questions based on r
 - 🧠 **LLM Reranking**: Uses GPT-4 to rerank results for better relevance
 - 💬 **Chat Interface**: Clean Streamlit UI for conversational interactions
 
-## Project Structure
-
-```
-reddit-rag-chatbot/
-├── app.py                 # Main Streamlit application
-├── config.py              # Configuration and settings
-├── data_handler.py        # Reddit scraping, vector DB, and retrieval
-├── summarizer.py          # LLM-based summarization
-├── utils.py               # Helper functions
-├── requirements.txt       # Python dependencies
-├── .env.example          # Environment variables template
-├── .gitignore            # Git ignore rules
-└── README.md             # This file
-```
 
 ## Setup
 
@@ -94,13 +80,6 @@ REDDIT_USER_AGENT=reddit_rag_app/1.0
 streamlit run app.py
 ```
 
-### How to Use
-
-1. **Enter a Topic**: Type a topic in the sidebar (e.g., "job market international students germany")
-2. **Load Data**: Click "Load Reddit Data" to scrape and process Reddit content
-3. **Ask Questions**: Start chatting in the main interface
-4. **Get Answers**: The bot will provide synthesized answers based on Reddit discussions
-
 ## Configuration
 
 Edit `config.py` to customize:
@@ -148,40 +127,7 @@ docker build -t reddit-rag-chatbot .
 docker run -p 8501:8501 --env-file .env reddit-rag-chatbot
 ```
 
-## Security Notes
 
-⚠️ **Important**: Never commit your `.env` file to version control!
-
-- The `.gitignore` file is configured to exclude `.env`
-- Always use `.env.example` as a template
-- For deployment, use platform-specific secret management
-- Rotate API keys regularly
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-MIT License - feel free to use this project for your own purposes.
-
-## Troubleshooting
-
-### "Reddit API credentials not found"
-- Make sure your `.env` file exists and contains valid credentials
-- Check that the file is in the same directory as `app.py`
-
-### "LLM not available"
-- Verify your OpenRouter API key is correctly set in `.env`
-- Check your API key has sufficient credits
-
-### Slow loading times
-- Reduce the `limit` parameter in `scrape_reddit()` (in `app.py`)
-- Adjust chunk settings in `config.py`
-
-## Support
-
-For issues and questions:
 - Open an issue on GitHub
 - Check existing issues for solutions
 - Review the documentation at [Streamlit Docs](https://docs.streamlit.io)
